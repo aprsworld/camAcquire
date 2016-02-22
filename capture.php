@@ -163,6 +163,6 @@ if ( RASPISTILL_WIDTH == IMAGE_SCALED_WIDTH && RASPISTILL_HEIGHT == IMAGE_SCALED
 
 
 /* do user actions */
-do_actions(DIR_ACTIONS_POST,$timestamp, $full, $scaled);
+do_actions(DIR_ACTION_POST,$timestamp, $full, $scaled);
 
 ?>
