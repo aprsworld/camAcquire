@@ -18,8 +18,8 @@ define('RASPISTILL_WIDTH',1920);
 define('RASPISTILL_HEIGHT',1080);
 
 /* actions */
-define('DIR_ACTION_PRE','/home/aprs/cam/actions.pre');
-define('DIR_ACTION_POST','/home/aprs/cam/actions.post');
+define('DIR_ACTION_PRE','/home/aprs/camAcquire/actions.pre');
+define('DIR_ACTION_POST','/home/aprs/camAcquire/actions.post');
 
 $runAtSecond=array();
 if ( 2 == $_SERVER['argc'] ) {
