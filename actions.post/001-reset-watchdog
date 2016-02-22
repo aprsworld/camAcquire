@@ -1,0 +1,2 @@
+#!/bin/bash
+/home/aprs/pmodbusq/getSensors-pcp-generic.php localhost:1229 &
