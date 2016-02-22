@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "[0]" $0 " script name"
-echo "[1]" $1 " unix timestamp"
-echo "[2]" $2 " full size image filename"
-echo "[3]" $3 " thumbnail size image filename"
+echo "[0]        script name: " $0
+echo "[1]     unix timestamp: " $1 
+echo "[2] full size filename: " $2 
+echo "[3] thumbnail filename: " $3
