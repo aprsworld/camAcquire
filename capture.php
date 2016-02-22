@@ -142,7 +142,7 @@ printf("\n");
 $full  =sprintf("%s/latest.jpg",DIR_LATEST);
 $scaled=sprintf("%s/latest.%dx%d.jpg",DIR_LATEST,IMAGE_SCALED_WIDTH,IMAGE_SCALED_HEIGHT);
 
-do_actions(DIR_ACTIONS_PRE,$timestamp, $full, $scaled);
+do_actions(DIR_ACTION_PRE,$timestamp, $full, $scaled);
 
 /* capture image */
 $err = do_capture($timestamp,$full,$scaled);

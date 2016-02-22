@@ -3,5 +3,4 @@ echo "[0]" $0 " script name"
 echo "[1]" $1 " unix timestamp"
 echo "[2]" $2 " full size image filename"
 echo "[3]" $3 " thumbnail size image filename"
-echo "[4]" $4 " extra?"
 
