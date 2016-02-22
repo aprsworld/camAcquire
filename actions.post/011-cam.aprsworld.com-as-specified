@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# configuration parameters
+# if minute is in UPLOADAT array, then we upload
+UPLOADAT=(0 5 10 15 20 25 30 35 40 45 50 55)
+USERNAME=`hostname | cut -c4-`
+PASSWORD=""
+URL="http://$USERNAME:$PASSWORD@cam.aprsworld.com/up/"
+
+# current minute
+NOWM=`date +%M`
+
+echo "### Send to cam.aprsworld.com when minute is { ${UPLOADAT[*]} }"
+echo "### current minute is $NOWM"
+echo "### URL is $URL"
+
+
+# check if current minute is one we upload at
+UPLOAD=0
+for i in ${UPLOADAT[@]}; do
+	if [ $i -eq $NOWM ]; then
+		UPLOAD=1
+	fi
+done
+
+# abort if we aren't supposed to upload
+if [ $UPLOAD -eq 0 ]; then
+	echo "### Not uploading since minute is" $NOWM
+	exit 1
+fi
+
+# actually upload
+curl -F file=@$3 $URL
