@@ -1,6 +1,12 @@
 # camAcquire
 # Raspberry Pi Camera capture and pre and post processing scripts
 
+## Requirements
+
+PHP is required. We use short open tags which must be set in `php.ini`.
+
+ImageMagick is required for image manipulation. Install with `sudo apt-get install imagemagick`.
+
 ## actions.pre/ and actions.post/ directories
 
 Contain scripts that are run before and after acquiring camera image. The capture script runs the executeable scripts in sorted order. Each scrip it called with the following arguments:
