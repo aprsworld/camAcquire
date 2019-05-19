@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# enable builtin bash commands 
+enable printf
+enable read
+
+# flag to mark when top of minute action has happen
+FIRED=0
+
+while :
+do
+	# use bash's builtin printf of current time as lighter weight alternative to `date +%S`
+	printf -v NOWS "%(%S)T\n" -1
+
+	if [ $NOWS -eq 0 ]; then
+		# execute capture if second is 0 and we haven't been fired yet
+		if [ $FIRED -eq 0 ]; then
+			./aprsCamCapture
+			echo ""
+			FIRED=1
+		else
+			# we get here if command above returns in less than a second
+			# so we sleep for a second before we automatically get re-armed
+			sleep 1
+		fi
+	else
+		printf "# aprsCamRun: sleeping until top of next minute ... (%(%Y-%m-%d %H:%M:%S)T)\r" -1
+
+		# sleep for 0.25 seconds (use read with a 0.25 second timeout instead of sleep 0.25)
+		read -t 0.25 3<&- 3<&0 <&3
+
+		# re-arm
+		FIRED=0
+	fi
+done
