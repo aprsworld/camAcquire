@@ -1,6 +1,19 @@
 # camAcquire
 # Raspberry Pi Camera capture and pre and post processing scripts
 
+## System setup
+
+The capture script needs permissions to access the video subsystem. This can be accomplished by running raspistill with sudo or by adding a udev rule to
+allow members of the video group to access the video subsystem. 
+```
+echo 'SUBSYSTEM=="vchiq",GROUP="video",MODE="0660"' >> /etc/udev/rules.d/10-vchiq-permissions.rules
+```
+
+And then adding the user ("aprs" in example below) to the video group.
+```
+usermod -a -G video aprs
+```
+
 ## actions.pre/ and actions.post/ directories
 
 Contain scripts that are run before and after acquiring camera image. The capture script runs the executeable scripts in sorted order. Each scrip it called with the following arguments:

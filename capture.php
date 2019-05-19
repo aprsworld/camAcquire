@@ -71,7 +71,7 @@ function do_capture($timestamp,$full,$scaled) {
 	}
 
 	/* capture image with raspistill */
-	$cmd_capture=sprintf("sudo raspistill -w %s -h %s -o %s %s -rot %s",RASPISTILL_WIDTH,RASPISTILL_HEIGHT,$full,RASPISTILL_ARGS,IMAGE_ROTATION);
+	$cmd_capture=sprintf("raspistill -w %s -h %s -o %s %s -rot %s",RASPISTILL_WIDTH,RASPISTILL_HEIGHT,$full,RASPISTILL_ARGS,IMAGE_ROTATION);
 
 	printf("# capturing with command:\n'%s'\n",$cmd_capture);
 
