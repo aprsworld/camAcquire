@@ -15,7 +15,7 @@ do
 	if [ $NOWS -eq 0 ]; then
 		# execute capture if second is 0 and we haven't been fired yet
 		if [ $FIRED -eq 0 ]; then
-			./aprsCamCapture
+			/home/aprs/camAcquire/aprsCamCapture
 			echo ""
 			FIRED=1
 		else
