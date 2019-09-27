@@ -111,6 +111,10 @@ function do_actions($directory,$timestamp,$full,$scaled) {
 	}
 	closedir($dir);
 
+	/* directory read order is random. Sort */
+	sort($scripts);
+
+
 	$args=$timestamp . ' ' . escapeshellarg($full) . ' ' . escapeshellarg($scaled);
 
 	/* execute scripts */
