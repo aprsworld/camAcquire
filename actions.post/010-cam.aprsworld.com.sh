@@ -2,7 +2,7 @@
 
 # replace usname:password with your cam.aprsworld.com username and password
 
-curl -F file=@$3 http://A5575:pond@cam.aprsworld.com/up/
+curl -F file=@$3 http://A5574:pond@cam.aprsworld.com/up/
 retVal=$?
 
 if [ $retVal -eq 0 ]; then
