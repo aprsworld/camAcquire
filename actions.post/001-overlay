@@ -4,9 +4,10 @@ echo "[1]     unix timestamp: " $1
 echo "[2] full size filename: " $2 
 echo "[3] thumbnail filename: " $3
 
-VOLTAGE=` ~/aprsI2C/aprs/pzPowerI2C 2>/dev/null | jq '.data.voltage_in_average'`
+# requires jq package. Install width sudo apt-get install jq
+VOLTAGE=`~/aprsI2C/aprs/pzPowerI2C/pzPowerI2C 2>/dev/null | jq '.pzPowerI2C.data.voltage_in_average'`
 NOW_HUMAN=`date -d @$1 +%Y-%m-%d\ %H:%M:%S\ %Z`
-IMAGE_LABEL=`printf "A5575: REFarm North Pond @ %s (Battery Voltage is %0.2f)" "$NOW_HUMAN" "$VOLTAGE"`
+IMAGE_LABEL=`printf "Camera @ %s (Battery Voltage is %0.2f)" "$NOW_HUMAN" "$VOLTAGE"`
 
 # echo $NOW_HUMAN
 echo $IMAGE_LABEL

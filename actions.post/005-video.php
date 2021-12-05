@@ -1,5 +1,5 @@
 #!/usr/bin/php -q
-<?
+<?php
 /* encode as time lapse video? */
 /* locations */
 define('DIR_HOURS','/home/aprs/cam/hours');

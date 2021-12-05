@@ -1,5 +1,5 @@
 #!/usr/bin/php -q
-<?
+<?php
 define("LOCAL_DIR","/home/aprs/photos");
 
 if ( 4 != $_SERVER['argc'] ) {

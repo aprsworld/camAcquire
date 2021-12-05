@@ -14,11 +14,14 @@ And then adding the user ("aprs" in example below) to the video group.
 usermod -a -G video aprs
 ```
 
+Note that if running interactively, you will need to logout and log back in before the user is actually added to the video group.
+
 ## Requirements
 
-PHP is required. We use short open tags which must be set in `php.ini`.
+PHP (CLI version) and ImageMagick are required. Install with:
+`sudo apt-get install imagemagick php-cli`
 
-ImageMagick is required for image manipulation. Install with `sudo apt-get install imagemagick`.
+We use short open tags which must be set in `php.ini`.
 
 ## actions.pre/ and actions.post/ directories
 
@@ -44,3 +47,29 @@ Also note that the execution time of the actions.pre scripts will delay the star
 
 examples would be watermarking image, uploading image, adding EXIF data,
 storing on SD card, etc.
+
+
+## Web interface
+A `monkey` web server can be installed with:
+
+```
+apt-get install php-cgi monkey
+cp /etc/monkey/monkey.conf /etc/monkey/monkey.conf.origin
+cp www/monkey/monkey.conf /etc/monkey/monkey.conf
+```
+In `/etc/php/7.3/cgi/php.ini` we need `cgi.force_redirect = 0`
+
+Monkey will only run on non-root ports. So we have it running on port 8080 and we use an iptables rule to make it also appear on port 80. Set that up with
+```
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 808
+0
+apt-get install iptables-persistent
+iptables-save > /etc/iptables/rules.v4
+```
+
+And basic functionality can be installed with:
+```
+rm -rf /var/www/*
+cp www/html/index.php /var/www
+ln -s /run/shm/cam /var/www/cam
+

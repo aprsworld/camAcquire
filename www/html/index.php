@@ -1,11 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title><?  echo gethostname(); ?></title>
+		<title><?php  echo gethostname(); ?></title>
 	</head>
 	<body>
-		<h1><?  echo gethostname(); ?></h1>
-<?
+		<h1><?php  echo gethostname(); ?></h1>
+<?php
 /* find latest scaled image. If it exists, put in page */
 
 $latestResized='';
@@ -41,7 +41,7 @@ if ( '' != $latestResized ) {
 ?>
 		<h2>Directory Listing</h2>
 			<ul>
-<?
+<?php
 $dir=opendir('.');
 
 $skipFiles=array('index.php','cgi-bin');

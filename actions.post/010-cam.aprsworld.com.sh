@@ -8,7 +8,7 @@ retVal=$?
 if [ $retVal -eq 0 ]; then
 	# reset write watchdog if curl returned 0
 	echo "# resetting write watchdog since curl exited error free"
-	/home/aprs/aprsI2C/aprs/pzPowerI2C --reset-write-watchdog
+	/home/aprs/aprsI2C/aprs/pzPowerI2C/pzPowerI2C --reset-write-watchdog
 else
 	echo "# curl returned $retVal which is an error. Not resetting write watchdog"
 fi
