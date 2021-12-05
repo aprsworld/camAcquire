@@ -33,7 +33,7 @@ if ( '' != $latestResized ) {
 	$ctime=filectime('cam/latest/' . $latestResized);
 	printf("<h2>Latest still image from %s. It is now %s</h2>\n",date("Y-m-d H:i:s",$ctime),date("Y-m-d H:i:s"));
 
-	printf("<img src=\"/cam/latest/%s\" width=\"%s\" height=\"%s\" style=\"width: 50%%; height: auto;\" alt=\"latest captured photo\" />\n",$latestResized,$dims[0],$dims[1]);
+	printf("<img src=\"/cam/latest/%s?t=%s\" width=\"%s\" height=\"%s\" style=\"width: 50%%; height: auto;\" alt=\"latest captured photo\" />\n",$latestResized,date("YmdHis"),$dims[0],$dims[1]);
 	printf("<br />This image does not automatically refresh. Reload page to check for new image.");
 }
 

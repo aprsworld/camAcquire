@@ -16,6 +16,9 @@ usermod -a -G video aprs
 
 Note that if running interactively, you will need to logout and log back in before the user is actually added to the video group.
 
+The camera, by default, will have a red LED lit when the camera is active. This can reflect back into the c
+camera and cause glare. Disable in `/boot/config.txt` with `disable_camera_led=1`
+
 ## Requirements
 
 PHP (CLI version) and ImageMagick are required. Install with:
@@ -61,8 +64,7 @@ In `/etc/php/7.3/cgi/php.ini` we need `cgi.force_redirect = 0`
 
 Monkey will only run on non-root ports. So we have it running on port 8080 and we use an iptables rule to make it also appear on port 80. Set that up with
 ```
-iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 808
-0
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
 apt-get install iptables-persistent
 iptables-save > /etc/iptables/rules.v4
 ```
