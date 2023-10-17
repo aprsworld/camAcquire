@@ -47,9 +47,4 @@ $cmd=sprintf("smbclient '%s' %s -D '%s' -U %s -c '%s'",
 printf("Executing: %s\n",$cmd);	
 passthru($cmd);
 
-/*
-smbclient '\\192.168.30.4\photo' stainless -D 'webcam/turkey' -U aprs -c 'mkdir 2015 ; mkdir 2015/05 ; mkdir 2015/05/24 ; put /run/shm/cam/latest/latest.jpg 2015/05/24/20156789_131415.jpg'
-Domain=[WORKGROUP] OS=[Unix] Server=[Samba 3.5.6]
-*/
-
 ?>

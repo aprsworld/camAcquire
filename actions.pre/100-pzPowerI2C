@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/home/aprs/aprsI2C/aprs/pzPowerI2C/pzPowerI2C
+/usr/local/bin/pzPowerI2C

@@ -4,7 +4,7 @@
 # if minute is in UPLOADAT array, then we upload
 UPLOADAT=(0 5 10 15 20 25 30 35 40 45 50 55)
 USERNAME=`hostname | cut -c4-`
-PASSWORD=""
+PASSWORD=`/usr/local/sbin/mac_24AA02E48T --read-mac 2>/dev/null | tr -d :`
 URL="http://$USERNAME:$PASSWORD@cam.aprsworld.com/up/"
 
 # current minute
